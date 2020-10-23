@@ -1,0 +1,31 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string wyraz;
+int y, dlugosc=0, licznik=0;
+
+int main()
+{
+    cin>>y;
+    for (int i=0; i<y; i++)
+    {
+        cin>>wyraz;
+        dlugosc=wyraz.length();
+        for (int j=0; j<dlugosc; j++)
+        {
+        if (wyraz[j+1]==wyraz[j])
+        {
+        licznik++;
+        if (licznik==2) cout<<wyraz[j];
+        }
+        else if (licznik>=2) {cout<<licznik+1; licznik=0;}
+        else if (wyraz[j+1]!=wyraz[j]&&licznik==1) {cout<<wyraz[j]<<wyraz[j]; licznik=0;}
+        else if (wyraz[j+1]==wyraz[j]&&wyraz[j]!=wyraz[j+2]) {cout<<wyraz[j];}
+        else {cout<<wyraz[j];}
+        }
+    cout<<endl;
+    }
+    return 0;
+}
